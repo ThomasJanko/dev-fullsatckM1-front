@@ -25,6 +25,8 @@ export default function LoginForm() {
             .then((res) => {
                 console.log(res)
                 setAlert('success')
+                setEmail('')
+                setPasssword('')
             })
         }
         else {

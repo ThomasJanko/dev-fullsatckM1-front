@@ -26,6 +26,10 @@ export default function RegisterForm() {
             .then((res) => {
                 console.log(res)
                 setAlert('success')
+                setEmail('')
+                setFirstName('')
+                setLastName('')
+                setPasssword('')
             })
         }
         else {
