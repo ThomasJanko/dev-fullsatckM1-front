@@ -2,11 +2,11 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
-import React from 'react';
 import LoginForm from '../components/Auth/LoginForm'
-import TitlePage from '../components/TitlePage'
+import React, { createContext, useContext } from 'react';
 
 import { Context } from './Context'
+
 
 export default function Home() {
   const [user, setUser] = useState({});

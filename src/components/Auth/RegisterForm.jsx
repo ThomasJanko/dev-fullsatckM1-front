@@ -41,9 +41,10 @@ export default function RegisterForm() {
     // setIslogged(JSON.parse(localStorage.getItem('Auth')))
     }
   return (
-    <div>
+    <div className='mx-auto'>
+        <h1 className=' font-bold mt-36 text-center text-2xl'>RegisterForm</h1>
 
-        <div className='bg-green-100 mx-auto border rounded-2xl card shadow-md elevation-2' style={{width: '50%', boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)'}}>
+        <div className='bg-green-200 mx-auto mt-4 border rounded-2xl card shadow-md elevation-2' style={{width: '40%', boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)'}}>
 
          <div className='mx-8 mt-4 flex-col '>
             <label className='block text-gray-700 text-sm font-bold mt-2' htmlFor="email">Email:</label><br/>
