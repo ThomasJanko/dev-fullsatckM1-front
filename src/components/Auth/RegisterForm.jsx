@@ -64,7 +64,7 @@ export default function RegisterForm() {
             </div>
 
             <div className='flex justify-between'>
-                    <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 pb-2" href="/auth/login">
+                    <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 pb-2" href="/auth/login">
                         Login
                     </a>
                 

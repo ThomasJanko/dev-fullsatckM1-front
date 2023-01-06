@@ -43,10 +43,10 @@ export default function index() {
   return (
     <div className='mx-auto bg-red-500 mt-52 p-8 rounded-lg' style={{width: '40%'}}>
         <div>
-            <div>firstName: <span>{user.firstName}</span> </div>
-            <div>lastName: <span>{user.lastName}</span> </div>
-            <div>email: <span>{user.email}</span> </div>
-            <div>Admin: <span>{user.isAdmin? 'YES' : 'NO'}</span> </div>
+            <div>FIRSTNAME: <span>{user.firstName}</span> </div>
+            <div>LASTNAME: <span>{user.lastName}</span> </div>
+            <div>EMAIL: <span>{user.email}</span> </div>
+            <div>ADMIN: <span>{user.isAdmin? 'YES' : 'NO'}</span> </div>
         </div>
     </div>
   )

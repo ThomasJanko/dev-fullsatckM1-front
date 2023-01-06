@@ -1,22 +1,23 @@
 import React, { createContext, useContext, useState } from 'react'
 import AuthService from '../../service/auth.service'
 import Alert from '../Utilities/Alert'
-import { Context } from '../../pages/Context'
+import { useRouter } from 'next/router';
 
 
 
 export default function LoginForm() {
     
-    
+    const router = useRouter();
+
     const [email, setEmail] = useState('')
     const [password, setPasssword] = useState('')
+    const [message, setMessage] = useState('')
 
     const [alert, setAlert] = useState('')
 
 
     const Login = () => {
 
-        console.log(process.env)
         let form = {
             email: email,
             password: password
@@ -28,16 +29,22 @@ export default function LoginForm() {
                   setAlert('success')
                   setEmail('')
                   setPasssword('')
-                
                   // setUser(res.data.user)
                    localStorage.setItem('Auth', JSON.stringify(res.data))
-                // setIslogged(JSON.parse(localStorage.getItem('Auth')))
+                   router.push('/users');
+            }
+            else{
+                setMessage('Email or password incorrect !')
+                setAlert('error')
             }
 
             })
+            .catch((err) => {
+                setAlert('error')
+    })
         }
         else {
-            console.log("Empty Fields")
+            setMessage('Fill empty fields !')
             setAlert('error')
         }
 
@@ -52,7 +59,7 @@ export default function LoginForm() {
             <input className='shadow appearance-none border rounded w-full p-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' value={email} type="email" onChange={(e) => setEmail(e.target.value)} /><br/>
             
             <label className='block text-gray-700 text-sm font-bold mt-2' htmlFor="password">PASSWORD :</label><br/>
-            <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' value={password} type="password"  onChange={(e) => setPasssword(e.target.value)} /><br/>
+            <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' value={password} type="password" onKeyDown={(e) => e.key==='Enter' && Login()}  onChange={(e) => setPasssword(e.target.value)} /><br/>
 
             <div className='flex justify-center'>
                 <button className='mt-4 text-center mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' onClick={() => Login()}> Login </button>
@@ -72,8 +79,8 @@ export default function LoginForm() {
         {alert=='success' &&
             <div className='flex justify-center pt-6'>
             <Alert type='success'>
-                <div className=''>
-                   Login success ! <span onClick={()=> setAlert('')} className='ml-36 cursor-pointer absolute '>X</span>
+                <div className='flex justify-between'>
+                   Login success ! <span onClick={()=> setAlert('')} className='cursor-pointer '>X</span>
                 </div>
                 
             </Alert>
@@ -83,8 +90,8 @@ export default function LoginForm() {
         {alert=='error' &&
             <div className='flex justify-center pt-6'>
             <Alert type='error'>
-                <div className=''>
-                    Error: Please fill all fields ! <span onClick={()=> setAlert('')} className='ml-36 cursor-pointer absolute  '>X</span>
+                <div className='flex justify-between'>
+                    {message} <span  onClick={()=> setAlert('')} className=' cursor-pointer'>X</span>
                 </div>
                 
             </Alert>
