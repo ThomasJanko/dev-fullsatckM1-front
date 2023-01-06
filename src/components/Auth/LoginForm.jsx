@@ -43,14 +43,14 @@ export default function LoginForm() {
    
     }
   return (
-    <div className='mx-auto '>
-        <h2 className='title font-bold mt-36 text-center text-2xl'>LoginForm</h2>
+    <div className='mx-auto  '>
+        <h2 className='title font-bold mt-32 text-center text-2xl'>LoginForm</h2>
         <div className='bg-green-100 mx-auto border rounded-2xl mt-4 card shadow-md elevation-2' style={{width: '40%', boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)'}}>
          <div className='mx-8 mt-4 flex-col '>
-            <label className='block text-gray-700 text-sm font-bold mt-2' htmlFor="email">Email:</label><br/>
+            <label className='block text-gray-700 text-sm font-bold mt-2' htmlFor="email">EMAIL :</label><br/>
             <input className='shadow appearance-none border rounded w-full p-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' value={email} type="email" onChange={(e) => setEmail(e.target.value)} /><br/>
             
-            <label className='block text-gray-700 text-sm font-bold mt-2' htmlFor="password">Password:</label><br/>
+            <label className='block text-gray-700 text-sm font-bold mt-2' htmlFor="password">PASSWORD :</label><br/>
             <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' value={password} type="password"  onChange={(e) => setPasssword(e.target.value)} /><br/>
 
             <div className='flex justify-center'>

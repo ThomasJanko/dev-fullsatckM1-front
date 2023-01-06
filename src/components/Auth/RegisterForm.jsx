@@ -42,21 +42,21 @@ export default function RegisterForm() {
     }
   return (
     <div className='mx-auto'>
-        <h1 className=' font-bold mt-36 text-center text-2xl'>RegisterForm</h1>
+        <h1 className=' font-bold mt-24 text-center text-2xl'>RegisterForm</h1>
 
         <div className='bg-green-200 mx-auto mt-4 border rounded-2xl card shadow-md elevation-2' style={{width: '40%', boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)'}}>
 
          <div className='mx-8 mt-4 flex-col '>
-            <label className='block text-gray-700 text-sm font-bold mt-2' htmlFor="email">Email:</label><br/>
+            <label className='block text-gray-700 text-sm font-bold mt-2' htmlFor="email">EMAIL :</label><br/>
             <input className='shadow appearance-none border rounded w-full p-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' type="email" onChange={(e) => setEmail(e.target.value)} /><br/>
             
-            <label className='block text-gray-700 text-sm font-bold mt-2 ' htmlFor="firstName">FirstName:</label><br/>
+            <label className='block text-gray-700 text-sm font-bold mt-2 ' htmlFor="firstName">FIRSTNAME :</label><br/>
             <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' type="text" onChange={(e) => setFirstName(e.target.value)} /><br/>
 
-            <label className='block text-gray-700 text-sm font-bold mt-2' htmlFor="lastName">LastName:</label><br/>
+            <label className='block text-gray-700 text-sm font-bold mt-2' htmlFor="lastName">LASTNAME :</label><br/>
             <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' type="text" onChange={(e) => setLastName(e.target.value)} /><br/>
 
-            <label className='block text-gray-700 text-sm font-bold mt-2' htmlFor="password">Password:</label><br/>
+            <label className='block text-gray-700 text-sm font-bold mt-2' htmlFor="password">PASSWORD :</label><br/>
             <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' type="password"  onChange={(e) => setPasssword(e.target.value)} /><br/>
 
             <div className='flex justify-center'>

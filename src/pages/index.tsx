@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 import LoginForm from '../components/Auth/LoginForm'
 import React, { createContext, useContext } from 'react';
+import NavBar from './../components/Layout/NavBar'
 
 import { Context } from './Context'
 
@@ -14,14 +15,8 @@ export default function Home() {
   return (
     <Context.Provider value={[user, setUser]}>
         
-    <div >
+        <LoginForm/>
       
-      <h1 className='text-red-600 text-3xl font-bold underline'>Formulaire</h1>
-     
-     {/* <TitlePage/> */}
-      <LoginForm/>
-      
-    </div>
     </Context.Provider>
   )
 }
