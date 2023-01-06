@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import usersService from '../../service/users.service';
 import { useRouter } from 'next/router'
 import Loader from '../../components/Utilities/Loader';
+// import { Context } from '../../pages/Context'
 
 export default function index() {
 
@@ -12,7 +13,6 @@ export default function index() {
     const [loading, setLoading] = useState(true);
 
    
-
     useEffect(() => {
           fetchData();
     }, []);
@@ -58,9 +58,8 @@ export default function index() {
       }
 
   return (
-    <div className='h-full'>
+    <div className='h-full mt-20'>
        <h1>Users List</h1>
-
        <div className='mt-4  justify-around p-8 overflow-y-scroll h-full' >
 
         {users && users.map((user)=>(

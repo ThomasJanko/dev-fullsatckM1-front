@@ -1,4 +1,5 @@
 import React,{ useState } from 'react'
+import { useRouter } from 'next/router';
 import ETH from "../../assets/img/eth_logo.png"
 import Menu from "../../assets/img/menu.png"
 import closeMenu from "../../assets/img/closeMenu.png"
@@ -7,6 +8,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function SideBar() {
+  const router = useRouter();
+
     const [menu, setMenu] = useState(false)
 
     const logout = () => {
@@ -27,10 +30,10 @@ export default function SideBar() {
              />
        </div>
         <div className='flex flex-col text-xl text-white relative mt-6 ml-4 '>
-        <Link href={'/'}> <li  className='py-2'> <span>Home</span> </li></Link>
-        <Link href={'/users'}><li className='py-2'> <span>Users</span></li></Link>
-        <Link href={'/auth/profil'}><li className='py-2'> <span >Profil</span> </li></Link>
-        <Link href={'/auth/register'}> <li className='py-2'> <span>Register</span> </li></Link>
+        <Link href={'/'}> <li className={router.pathname == "/" ? "py-2 text-primary" : "py-2"}> <span>Home</span> </li></Link>
+        <Link href={'/users'}><li className={router.pathname == "/users" ? "py-2 text-primary" : "py-2"}> <span>Users</span></li></Link>
+        <Link href={'/auth/profil'}><li className={router.pathname == "/auth/profil" ? "py-2 text-primary" : "py-2"}> <span >Profil</span> </li></Link>
+        <Link href={'/auth/register'}> <li className={router.pathname == "/auth/register" ? "py-2 text-primary" : "py-2"}> <span>Register</span> </li></Link>
         </div>
         <div className='absolute bottom-2 ml-16 cursor-pointer'  onClick={() => logout()}>
             <Image src={Logout} width={30} height={30} alt='logout' />

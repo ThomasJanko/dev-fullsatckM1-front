@@ -2,11 +2,13 @@ import React, { createContext, useContext, useState } from 'react'
 import AuthService from '../../service/auth.service'
 import Alert from '../Utilities/Alert'
 import { useRouter } from 'next/router';
+import { Context } from '../../pages/Context'
 
 
 
 export default function LoginForm() {
     
+    const {currentUser, login} = useContext(Context)
     const router = useRouter();
 
     const [email, setEmail] = useState('')
@@ -31,6 +33,7 @@ export default function LoginForm() {
                   setPasssword('')
                   // setUser(res.data.user)
                    localStorage.setItem('Auth', JSON.stringify(res.data))
+                   login();
                    router.push('/users');
             }
             else{
