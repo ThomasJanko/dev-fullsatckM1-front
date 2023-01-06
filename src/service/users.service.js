@@ -1,14 +1,16 @@
 import axios from 'axios';
 
+const URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
 export default{
     
     getUsers(){
-       return axios.get("http://localhost:4040/api/user/users")
+       return axios.get(`${URL}/user/users`)
         .then(res=>res)
         .catch(err=>console.log(err))
     },
     deleteUser(id){
-        return axios.delete("http://localhost:4040/api/user/users/"+id)
+        return axios.delete(`${URL}/user/users/`+id)
         .then(res=>res)
         .catch(err=>console.log(err))
     },
@@ -18,7 +20,7 @@ export default{
               authorization: jwt,
             },
           };
-        return axios.get("http://localhost:4040/api/user/user/"+id, config)
+        return axios.get(`${URL}/user/user/`+id, config)
         .then(res=>res)
         .catch(err=>console.log(err))
     },
@@ -29,7 +31,7 @@ export default{
               authorization: jwt,
             },
           };
-        return axios.get("http://localhost:4040/api/user/user/", config)
+        return axios.get(`${URL}/user/user/`, config)
         .then(res=>res)
         .catch(err=>console.log(err))
     }

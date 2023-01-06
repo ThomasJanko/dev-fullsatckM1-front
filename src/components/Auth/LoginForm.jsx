@@ -16,6 +16,7 @@ export default function LoginForm() {
 
     const Login = () => {
 
+        console.log(process.env)
         let form = {
             email: email,
             password: password
