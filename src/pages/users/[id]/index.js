@@ -17,13 +17,13 @@ export default function index() {
 
    
 
-  if (typeof window !== 'undefined') {
     useEffect(() => {
           if(router.isReady){
               fetchData();
+
           }
-      }, []);
-}
+      }, [router.isReady]);
+
     
 
     async function fetchData() {
@@ -45,7 +45,7 @@ export default function index() {
           return <p>Error: Your are not Administrator</p>;
         }
 
-
+ 
         const editUser = () => {
           let jwt = JSON.parse(localStorage.getItem('Auth'))
           console.log(user)
