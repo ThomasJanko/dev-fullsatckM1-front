@@ -65,14 +65,25 @@ export default function index() {
        <div className='mt-4  justify-around p-8 overflow-y-scroll h-full' >
 
         {users && users.map((user)=>(
-            <div className='shadow-xl shadow-cyan-500 border bg-green-400 rounded-md p-4 m-4 mx-auto ' key={user._id} style={{width: '600px'}}>
-              <span className='font-bold '>ID: </span>  {user._id} <br/>
-              <span className='font-bold '>firstName: </span>  {user.firstName} <br/>
-              <span className='font-bold '>lastName: </span> {user.lastName} <br/>
-              <span className='font-bold '>email:</span>   {user.email}  <br/>
-              <span className='font-bold '>administrator:</span> {user.isAdmin? 'YES' : 'NO'}  <br/>
-              <button  className='rounded mt-2 ml-8  bg-red-600  border py-1 px-2' onClick={() => deleteUser(user._id)}>Delete</button>
-              <button  className='rounded mt-2 ml-8  bg-blue-600  border py-1 px-2' onClick={() => seeUser(user._id)}>See</button>
+            <div className='shadow-xl shadow-cyan-500 border bg-green-400 rounded-md p-4 m-4 mx-auto flex justify-between ' key={user._id} style={{width: '600px'}}>
+              <div className='w-full'>
+                
+                <span className='font-bold '>ID: </span>  {user._id} <br/>
+                <span className='font-bold '>firstName: </span>  {user.firstName} <br/>
+                <span className='font-bold '>lastName: </span> {user.lastName} <br/>
+                <span className='font-bold '>email:</span>   {user.email}  <br/>
+                <span className='font-bold '>administrator:</span> {user.isAdmin? 'YES' : 'NO'}  <br/>
+                <div className='flex justify-center w-full'>
+                  <button  className='rounded mt-2 ml-6 outline-dotted bg-red-600  border py-1 px-2 w-20' onClick={() => deleteUser(user._id)}>Delete</button>
+                  <button  className='rounded mt-2 ml-6 outline-double  bg-blue-600 border py-1 px-2 w-20' onClick={() => seeUser(user._id)}>See</button>
+                </div>
+              </div>
+              <div className='bg-red-400 mt-4 rounded-2xl' style={{width: '80px', height:'75px'}}>
+                    <img className='rounded-xl' 
+                    src={user.isAdmin?
+                     'https://png.pngtree.com/png-vector/20190629/ourmid/pngtree-office-work-user-icon-avatar-png-image_1527655.jpg'
+                    : 'https://i.pinimg.com/736x/89/90/48/899048ab0cc455154006fdb9676964b3.jpg'} alt=""/>
+                </div>
               
 
             </div>
