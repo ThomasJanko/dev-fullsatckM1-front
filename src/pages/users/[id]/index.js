@@ -64,7 +64,7 @@ export default function index() {
       <>
       {editing ? 
       <div>
-        <input className=''
+        <input className='rounded-xl w-full p-1 px-2 bg-red-400'
             type='text'
             value={user.firstName}
             onChange={e => {
@@ -75,7 +75,7 @@ export default function index() {
             placeholder={user.firstName}
             />
             <br/>
-        <input className='mt-2'
+        <input className='mt-2 rounded-xl w-full p-1 px-2 bg-red-400'
             type='text'
             value={user.lastName}
             onChange={e => {
@@ -86,7 +86,7 @@ export default function index() {
             placeholder={user.lastName}
             />
             <br/>
-        <input className='mt-2'
+        <input className='mt-2 rounded-xl w-full p-1 px-2 bg-red-400'
             type='text'
             value={user.email}
             onChange={e => {
@@ -97,17 +97,34 @@ export default function index() {
             placeholder={user.email}
             />
     <br/>
+
+            <div className='mt-2'>
+            Admin: <span className='ml-2 cursor-pointer font-bold rounded-full border p-1' onClick={() => { const newUser = {...user}; newUser.isAdmin = !newUser.isAdmin; setUser(newUser)}}>{user.isAdmin ? 'YES': 'NO'} </span> 
+            </div>
             <button type="button" className='rounded mt-2 bg-green-600  border py-1 px-2' onClick={()=> editUser()}>Valider</button>
       </div>
       :
-        <div>
-            <div>FIRSTNAME: <span>{user.firstName}</span> </div>
-            <div>LASTNAME: <span>{user.lastName}</span> </div>
-            <div>EMAIL: <span>{user.email}</span> </div>
-            <div>ADMIN: <span>{user.isAdmin? 'YES' : 'NO'}</span> </div>
+      <div className='flex justify-between'>
+        
+        <div className='py-2'>
+            <li>FIRSTNAME: <span className='font-bold'>{user.firstName}</span> </li>
+            <li>LASTNAME: <span className='font-bold'>{user.lastName}</span> </li>
+            <li>EMAIL: <span className='font-bold'>{user.email}</span> </li>
+            <li>ADMIN: <span className='font-bold'>{user.isAdmin? 'YES' : 'NO'}</span> </li>
         </div>
+        <div className='bg-red-400 mt-6 rounded-2xl' style={{width: '80px', height:'80px'}}>
+                    <img className='rounded-xl' 
+                    src={user.isAdmin?
+                     'https://png.pngtree.com/png-vector/20190629/ourmid/pngtree-office-work-user-icon-avatar-png-image_1527655.jpg'
+                    : 'https://i.pinimg.com/736x/89/90/48/899048ab0cc455154006fdb9676964b3.jpg'} alt=""/>
+                </div>
+      </div>
+
       }
-      <button className='rounded mt-2 bg-orange-600  border py-1 px-2' onClick={()=> setEditing(!editing)} > Edit</button>
+      <div className='flex w-full justify-center'>
+      <button className='rounded mt-2 w-20 bg-orange-600  border py-1 px-2' onClick={()=> setEditing(!editing)} > Edit</button>
+        
+      </div>
       
       
       </>}
