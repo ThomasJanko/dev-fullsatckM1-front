@@ -10,13 +10,8 @@ import { Context } from './Context'
 
 
 export default function Home() {
-  const [user, setUser] = useState({});
   
   return (
-    <Context.Provider value={[user, setUser]}>
-        
         <LoginForm/>
-      
-    </Context.Provider>
   )
 }

@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useRouter } from 'next/router';
 import Link from 'next/link'
 import Image from 'next/image'
 import ETH from "../../assets/img/eth_logo.png"
 import Logout from "../../assets/img/logout.png"
+import { Context } from '../../pages/Context';
 
 export default function NavBar() {
 
   const router = useRouter();
+  const {logout} = useContext(Context)
   
-    const logout = () => {
+    const disconnect = () => {
         localStorage.setItem('Auth', '')
+        logout()
     }   
   return (
     <nav className='shadow-xl shadow-red-500 flex justify-between text-md font-bold bg-red-400 p-4 text-white fixed w-full top-0 '>
@@ -26,7 +29,7 @@ export default function NavBar() {
             alt={'logo'}
             width={26}
             height={26}
-            onClick={() => logout()}
+            onClick={() => disconnect()}
              />
        </div>
         

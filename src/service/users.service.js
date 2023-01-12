@@ -34,6 +34,16 @@ export default{
         return axios.get(`${URL}/user/user/`, config)
         .then(res=>res)
         .catch(err=>console.log(err))
+    },
+    editUser(user_id, form, jwt){
+        const config = {
+            headers: {
+              authorization: jwt,
+            },
+          };
+        return axios.put(`${URL}/user/user/${user_id}`, form, config)
+        .then(res=>res)
+        .catch(err=>console.log(err))
     }
 
 }

@@ -2,11 +2,12 @@ import React, { useEffect, useState, useContext } from 'react'
 import usersService from '../../service/users.service';
 import { useRouter } from 'next/router'
 import Loader from '../../components/Utilities/Loader';
-// import { Context } from '../../pages/Context'
+import { Context } from '../../pages/Context'
 
 export default function index() {
 
   const router = useRouter()
+    const {isAuthenticated} = useContext(Context)
 
     const [users, setUsers] = useState([])
     const [error, setError] = useState(null);
@@ -60,6 +61,7 @@ export default function index() {
   return (
     <div className='h-full mt-20'>
        <h1>Users List</h1>
+    {isAuthenticated && <div className='text-red-500'> auth: {isAuthenticated} </div>}
        <div className='mt-4  justify-around p-8 overflow-y-scroll h-full' >
 
         {users && users.map((user)=>(

@@ -2,13 +2,13 @@ import React, { createContext, useContext, useState } from 'react'
 import AuthService from '../../service/auth.service'
 import Alert from '../Utilities/Alert'
 import { useRouter } from 'next/router';
-import { Context } from '../../pages/Context'
+import { useAuth } from '../../pages/Context'
 
 
 
 export default function LoginForm() {
     
-    const {currentUser, login} = useContext(Context)
+    const {login} = useAuth()
     const router = useRouter();
 
     const [email, setEmail] = useState('')
@@ -18,7 +18,7 @@ export default function LoginForm() {
     const [alert, setAlert] = useState('')
 
 
-    const Login = () => {
+    const handleForm = () => {
 
         let form = {
             email: email,
@@ -32,9 +32,11 @@ export default function LoginForm() {
                   setEmail('')
                   setPasssword('')
                   // setUser(res.data.user)
+                  console.log('log')
                    localStorage.setItem('Auth', JSON.stringify(res.data))
+                   console.log('in')
                    login();
-                   router.push('/users');
+                //    router.push('/users');
             }
             else{
                 setMessage('Email or password incorrect !')
@@ -62,14 +64,14 @@ export default function LoginForm() {
             <input className='shadow appearance-none border rounded w-full p-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' value={email} type="email" onChange={(e) => setEmail(e.target.value)} /><br/>
             
             <label className='block text-gray-700 text-sm font-bold mt-2' htmlFor="password">PASSWORD :</label><br/>
-            <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' value={password} type="password" onKeyDown={(e) => e.key==='Enter' && Login()}  onChange={(e) => setPasssword(e.target.value)} /><br/>
+            <input className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' value={password} type="password" onKeyDown={(e) => e.key==='Enter' && handleForm()}  onChange={(e) => setPasssword(e.target.value)} /><br/>
 
             <div className='flex justify-center'>
-                <button className='mt-4 text-center mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' onClick={() => Login()}> Login </button>
+                <button className='mt-4 text-center mx-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' onClick={() => handleForm()}> Login </button>
             </div>
 
             <div className='flex justify-between'>
-                    <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 pb-2" href="/auth/register">
+                    <a className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 pb-2" href="/auth/register">
                         Register
                     </a>
                 
