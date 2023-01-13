@@ -41,7 +41,7 @@ export default function index() {
         console.log(user_id)
         usersService.deleteUser(user_id)
         .then(() => {
-          
+          fetchData()
         })
       }
 
@@ -60,9 +60,9 @@ export default function index() {
 
   return (
     <div className='h-full mt-20'>
-       <h1>Users List</h1>
-    {isAuthenticated && <div className='text-red-500'> auth: {isAuthenticated} </div>}
-       <div className='mt-4  justify-around p-8 overflow-y-scroll h-full' >
+       <h1 className='text-center font-bold text-2xl'>Users List</h1>
+    {/* {isAuthenticated && <div className='text-red-500'> auth: {isAuthenticated} </div>} */}
+       <div className='mt-2 justify-around p-8 overflow-y-scroll  h-full custom-overflow' >
 
         {users && users.map((user)=>(
             <div className='shadow-xl shadow-cyan-500 border bg-green-400 rounded-md p-4 m-4 mx-auto flex justify-between ' key={user._id} style={{width: '600px'}}>
