@@ -20,6 +20,7 @@ export default function NavBar() {
         <div className='ml-36 my-auto text-xl'>
             <Link href={'/'}><span className={router.pathname == "/" ? "px-4 text-primary" : "px-4"}>Home</span></Link> 
             <Link href={'/users'}><span className={router.pathname == "/users" ? "px-4 text-primary" : "px-4"}>Users</span></Link> 
+            <Link href={'/places'}><span className={router.pathname == "/places" ? "px-4 text-primary" : "px-4"}>Places</span></Link> 
             <Link href={'/auth/profil'}><span className={router.pathname == "/auth/profil" ? "px-4 text-primary" : "px-4"}>Profil</span></Link> 
             <Link href={'/auth/register'}><span className={router.pathname == "/auth/register" ? "px-4 text-primary" : "px-4"}>Register</span></Link>
        </div>

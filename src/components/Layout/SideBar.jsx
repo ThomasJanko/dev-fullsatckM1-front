@@ -32,6 +32,7 @@ export default function SideBar() {
         <div className='flex flex-col text-xl text-white relative mt-6 ml-4 '>
         <Link href={'/'}> <li className={router.pathname == "/" ? "py-2 text-primary" : "py-2"}> <span>Home</span> </li></Link>
         <Link href={'/users'}><li className={router.pathname == "/users" ? "py-2 text-primary" : "py-2"}> <span>Users</span></li></Link>
+        <Link href={'/places'}><li className={router.pathname == "/places" ? "py-2 text-primary" : "py-2"}> <span>Users</span></li></Link>
         <Link href={'/auth/profil'}><li className={router.pathname == "/auth/profil" ? "py-2 text-primary" : "py-2"}> <span >Profil</span> </li></Link>
         <Link href={'/auth/register'}> <li className={router.pathname == "/auth/register" ? "py-2 text-primary" : "py-2"}> <span>Register</span> </li></Link>
         </div>
