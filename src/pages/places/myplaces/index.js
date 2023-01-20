@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import placesService from '../../service/places.service';
 import Link from 'next/link'
+import usersService from '../../../service/users.service';
 
 const Index = () => {
     const [loading, setLoading] = useState(true);
@@ -14,9 +14,13 @@ const Index = () => {
   }, []);
 
   async function fetchData() {
+    // await delay(1000);
     try {
-      const response = await placesService.getPlaces();
-      setPlaces(response.data);
+      let jwt = JSON.parse(localStorage.getItem('Auth'))
+      const response = await usersService.getUserAuth(jwt);
+    //   setUser(response.data);
+      console.log(response)
+      setPlaces(response.data.places);
     } catch (error) {
       setError(error);
     } finally {
@@ -33,11 +37,9 @@ const Index = () => {
   }
     return (
         <div className='mt-40 flex flex-wrap justify-center w-full p-4'>
+           
           <Link href={'/places/create'}>
             <button className='absolute left-20 top-28 rounded-md bg-primary p-2 shadow-xl' type="text"> Create Place</button>
-          </Link>
-          <Link href={'/places/myplaces'}>
-            <button className='absolute left-52 top-28 rounded-md bg-green-300 p-2 shadow-xl' type="text"> My Places</button>
           </Link>
             {places && places.map((place) => 
             <div className='border p-8 w-1/3 m-4 bg-cyan-200 rounded-xl shadow-2xl shadow-stone-400 '>

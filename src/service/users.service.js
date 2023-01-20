@@ -35,6 +35,7 @@ export default{
         .then(res=>res)
         .catch(err=>console.log(err))
     },
+    
     editUser(user_id, form, jwt){
         const config = {
             headers: {
